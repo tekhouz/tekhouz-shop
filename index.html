@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tekhouz Solutions — Wholesale Refurbished Tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0f4c81;--navy-light:#1565a8;--navy-mid:#0d3f6b;
+  --accent:#1565c0;--accent-dark:#0d47a1;--accent-dim:rgba(21,101,192,0.08);
+  --white:#fff;--gray-50:#f8f9fb;--gray-100:#eef0f4;--gray-200:#d8dce6;
+  --gray-400:#8892a4;--gray-600:#4a5568;--gray-800:#1a202c;
+  --green:#22c55e;--orange:#f59e0b;--red:#ef4444;
+  --radius:8px;--radius-lg:14px;
+  --shadow:0 1px 3px rgba(0,0,0,0.07),0 4px 16px rgba(0,0,0,0.05);
+  --shadow-lg:0 8px 32px rgba(0,0,0,0.14);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--gray-50);color:var(--gray-800);font-size:15px;line-height:1.6}
+
+/* NAV */
+nav{background:var(--white);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;align-items:center;height:64px;gap:20px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0}
+.logo-mark{width:34px;height:34px;background:var(--accent);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--white)}
+.logo-text{color:var(--navy);font-size:17px;font-weight:700;letter-spacing:-.2px}
+.logo-sub{color:var(--accent);font-size:10px;font-weight:600;letter-spacing:.5px;display:block;margin-top:-2px}
+.nav-search{flex:1;max-width:360px;position:relative}
+.nav-search input{width:100%;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:7px 12px 7px 36px;color:var(--gray-800);font-size:13px;font-family:inherit;outline:none;transition:all .2s}
+.nav-search input::placeholder{color:var(--gray-400)}
+.nav-search input:focus{border-color:var(--accent);background:var(--white)}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--gray-400);width:15px;height:15px}
+.nav-links{display:flex;align-items:center;gap:2px;margin-left:auto}
+.nav-links a{color:var(--gray-600);text-decoration:none;font-size:13px;padding:6px 11px;border-radius:6px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--navy);background:var(--gray-50)}
+.nav-cta{background:var(--accent)!important;color:var(--white)!important;font-weight:600!important;border-radius:7px!important}
+.nav-cta:hover{background:var(--accent-dark)!important}
+.live-dot{display:inline-block;width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 1.8s ease-in-out infinite;vertical-align:1px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 70%,#1a3a5c 100%);padding:44px 20px 36px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.hero-eye{color:var(--accent);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.hero h1{color:var(--white);font-size:34px;font-weight:700;line-height:1.15;letter-spacing:-.6px;margin-bottom:12px}
+.hero h1 span{color:var(--accent)}
+.hero-sub{color:rgba(255,255,255,0.58);font-size:15px;max-width:500px;margin-bottom:24px}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;border:none;font-family:inherit;transition:all .2s;white-space:nowrap}
+.btn-primary{background:var(--accent);color:var(--navy)}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:rgba(255,255,255,.85);border:1.5px solid rgba(255,255,255,.2)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.hero-stats{display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:22px 26px;min-width:200px}
+.stat-num{color:var(--white);font-size:24px;font-weight:700;letter-spacing:-.4px}
+.stat-label{color:rgba(255,255,255,0.45);font-size:11px;margin-top:1px}
+.stat-div{height:1px;background:rgba(255,255,255,.07)}
+
+/* TICKER */
+.ticker-bar{background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.08);padding:9px 0;overflow:hidden}
+.ticker-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.ticker-label{color:#7ec1ff;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:5px;flex-shrink:0}
+.ticker-scroll{flex:1;overflow:hidden;mask:linear-gradient(to right,transparent 0%,black 5%,black 95%,transparent 100%)}
+.ticker-track{display:flex;gap:28px;animation:scroll-l 40s linear infinite;width:max-content}
+.ticker-item{white-space:nowrap;font-size:12px;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:6px}
+.t-in{color:#4ade80;font-weight:600;font-size:10px}
+.t-low{color:#fbbf24;font-weight:600;font-size:10px}
+@keyframes scroll-l{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* LAYOUT */
+.page-wrap{max-width:1280px;margin:0 auto;padding:24px 20px;display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:start}
+
+/* SIDEBAR */
+.sidebar{background:var(--white);border:.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:18px;position:sticky;top:70px;box-shadow:var(--shadow)}
+.sb-section{margin-bottom:20px}
+.sb-section:last-child{margin-bottom:0}
+.sb-title{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--gray-400);margin-bottom:10px}
+.filter-list label{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);padding:4px 0;cursor:pointer;user-select:none}
+.filter-list label:hover{color:var(--gray-800)}
+.filter-list input[type=checkbox]{accent-color:var(--accent);width:14px;height:14px;cursor:pointer}
+.grade-pills{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+.gp{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;border:1.5px solid var(--gray-200);background:transparent;color:var(--gray-600);transition:all .2s}
+.gp.on{border-color:var(--accent);color:var(--accent-dark);background:var(--accent-dim)}
+.price-row{display:flex;justify-content:space-between;font-size:11px;color:var(--gray-400);margin-top:6px}
+
+/* PRODUCTS AREA */
+.content{}
+.cat-tabs{display:flex;gap:6px;margin-bottom:16px;overflow-x:auto;padding-bottom:2px}
+.ct{padding:7px 16px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--gray-200);background:var(--white);color:var(--gray-600);white-space:nowrap;transition:all .2s}
+.ct:hover{border-color:var(--navy);color:var(--navy)}
+.ct.on{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.toolbar{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.results-count{font-size:13px;color:var(--gray-400);flex:1}
+.results-count strong{color:var(--gray-800)}
+.sort-sel{padding:7px 11px;border:.5px solid var(--gray-200);border-radius:var(--radius);font-size:13px;font-family:inherit;background:var(--white);color:var(--gray-800);outline:none;cursor:pointer}
+.sort-sel:focus{border-color:var(--accent)}
+
+/* PRODUCT GRID */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.pcard{background:var(--white);border:.5px solid var(--gray-200);border-radius:var(--radius-lg);overflow:hidden;transition:all .2s;cursor:pointer;position:relative;box-shadow:var(--shadow)}
+.pcard:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,200,150,0.1),var(--shadow)}
+.card-top{position:absolute;top:8px;left:8px;right:8px;display:flex;justify-content:space-between;align-items:flex-start;z-index:1}
+.badge{font-size:9px;font-weight:700;padding:3px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.3px}
+.badge-a{background:#dcfce7;color:#166534}
+.badge-b{background:#fef3c7;color:#92400e}
+.badge-c{background:#fee2e2;color:#991b1b}
+.badge-d{background:#f3f4f6;color:#374151}
+.qty-tag{font-size:9px;font-weight:700;background:rgba(10,22,40,0.75);color:rgba(255,255,255,.9);padding:3px 7px;border-radius:4px;backdrop-filter:blur(4px)}
+.card-img{height:140px;background:var(--gray-50);display:flex;align-items:center;justify-content:center;border-bottom:.5px solid var(--gray-100)}
+.card-img svg{opacity:.7}
+.card-body{padding:12px}
+.card-brand{font-size:10px;color:var(--accent-dark);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.card-name{font-size:13px;font-weight:600;color:var(--gray-800);margin-bottom:4px;line-height:1.35}
+.card-specs{font-size:11px;color:var(--gray-400);margin-bottom:8px;font-family:'DM Mono',monospace}
+.card-footer{display:flex;align-items:center;justify-content:space-between}
+.card-price{font-size:18px;font-weight:700;color:var(--navy);letter-spacing:-.4px}
+.stock-row{display:flex;align-items:center;gap:4px;font-size:10px;margin-top:7px}
+.sdot{width:5px;height:5px;border-radius:50%}
+.card-actions{padding:0 12px 12px;display:flex;flex-direction:column;gap:6px}
+.btn-add{background:var(--navy);color:var(--white);justify-content:center;font-size:12px;padding:8px;width:100%}
+.btn-add:hover{background:var(--navy-light)}
+.btn-offer-sm{background:transparent;color:var(--navy);border:1.5px solid var(--gray-200);justify-content:center;font-size:12px;padding:7px;width:100%}
+.btn-offer-sm:hover{border-color:var(--accent);color:var(--accent-dark);background:var(--accent-dim)}
+
+/* INVENTORY TABLE */
+.inv-wrap{margin-top:28px}
+.inv-card{background:var(--white);border:.5px solid var(--gray-200);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)}
+.inv-head{background:var(--navy);padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
+.inv-head h3{color:var(--white);font-size:14px;font-weight:600;display:flex;align-items:center;gap:7px}
+.inv-refresh{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:inherit;transition:all .2s}
+.inv-refresh:hover{background:rgba(255,255,255,.18)}
+.tbl-wrap{overflow-x:auto}
+table.inv-tbl{width:100%;border-collapse:collapse;font-size:12px}
+.inv-tbl th{background:var(--gray-50);padding:9px 14px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-400);border-bottom:.5px solid var(--gray-200)}
+.inv-tbl td{padding:10px 14px;border-bottom:.5px solid var(--gray-100);color:var(--gray-700);vertical-align:middle}
+.inv-tbl tr:last-child td{border-bottom:none}
+.inv-tbl tr:hover td{background:var(--gray-50)}
+.sku{font-family:'DM Mono',monospace;font-size:10px;color:var(--gray-400)}
+.qty-b{display:inline-flex;align-items:center;gap:3px;font-weight:700;font-size:11px;padding:2px 7px;border-radius:4px}
+.qh{background:#dcfce7;color:#166534}
+.qm{background:#fef3c7;color:#92400e}
+.ql{background:#fee2e2;color:#991b1b}
+.wms-t{font-size:9px;background:#e0e7ff;color:#3730a3;padding:2px 6px;border-radius:3px;font-weight:700}
+
+/* PRICING */
+.pricing-wrap{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.price-card{border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:22px;background:var(--white)}
+.price-card.feat{border-color:var(--accent);background:rgba(0,200,150,0.03)}
+.price-card h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.price-type{font-size:10px;font-weight:700;padding:2px 9px;border-radius:4px;display:inline-block;margin-bottom:10px}
+.price-disc{font-size:22px;font-weight:700;color:var(--accent-dark);margin-bottom:10px}
+.price-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.price-list li{font-size:13px;color:var(--gray-600);display:flex;align-items:center;gap:7px}
+.price-list li::before{content:"✓";color:var(--accent);font-weight:700;flex-shrink:0}
+
+/* PAYMENT */
+.pay-wrap{margin-top:20px;background:var(--white);border:.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow)}
+.pay-wrap h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:7px}
+.pay-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.pay-m{border:1px solid var(--gray-200);border-radius:var(--radius);padding:14px}
+.pay-m h4{font-size:13px;font-weight:600;color:var(--gray-800);margin-top:4px;margin-bottom:4px}
+.pay-m p{font-size:11px;color:var(--gray-400);line-height:1.5}
+.pay-icon{font-size:20px}
+
+/* MODAL */
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(10,22,40,.6);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
+.modal-ov.open{display:flex}
+.modal{background:var(--white);border-radius:var(--radius-lg);width:100%;max-width:500px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg)}
+.modal-hd{padding:22px 24px 0;display:flex;align-items:flex-start;justify-content:space-between}
+.modal-title{font-size:18px;font-weight:700;color:var(--navy);letter-spacing:-.2px}
+.modal-sub{font-size:13px;color:var(--gray-400);margin-top:3px}
+.modal-x{background:var(--gray-100);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--gray-600);flex-shrink:0;transition:all .2s}
+.modal-x:hover{background:var(--gray-200)}
+.modal-bd{padding:18px 24px 24px}
+.form-r{margin-bottom:14px}
+.form-r label{display:block;font-size:12px;font-weight:600;color:var(--gray-600);margin-bottom:5px}
+.form-r input,.form-r select,.form-r textarea{width:100%;padding:9px 12px;border:1px solid var(--gray-200);border-radius:var(--radius);font-size:13px;font-family:inherit;color:var(--gray-800);outline:none;transition:border-color .2s}
+.form-r input:focus,.form-r select:focus,.form-r textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,200,150,0.1)}
+.form-r textarea{resize:vertical;min-height:80px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.type-tabs{display:flex;gap:7px;margin-bottom:14px}
+.ttab{flex:1;padding:9px;border:1.5px solid var(--gray-200);border-radius:var(--radius);text-align:center;cursor:pointer;transition:all .2s}
+.ttab.on{border-color:var(--accent);background:var(--accent-dim)}
+.ttab h4{font-size:13px;font-weight:600;margin-bottom:2px}
+.ttab p{font-size:10px;color:var(--gray-400)}
+.ttab.on h4{color:var(--accent-dark)}
+.pay-opts{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.pay-opt{display:flex;align-items:center;gap:9px;padding:9px 12px;border:1px solid var(--gray-200);border-radius:var(--radius);cursor:pointer;transition:all .2s;font-size:13px}
+.pay-opt:hover{border-color:var(--accent)}
+.pay-opt input{accent-color:var(--accent)}
+.pay-opt-sub{font-size:11px;color:var(--gray-400)}
+.btn-submit{background:var(--accent);color:var(--navy);font-weight:700;width:100%;justify-content:center;padding:12px;font-size:14px;border-radius:var(--radius);border:none;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px;transition:all .2s}
+.btn-submit:hover{background:var(--accent-dark)}
+
+/* SECTION HEADER */
+.sec-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.sec-title{font-size:18px;font-weight:700;color:var(--navy);letter-spacing:-.2px}
+.sec-link{font-size:13px;color:var(--accent-dark);text-decoration:none;font-weight:500}
+
+/* FOOTER */
+footer{background:var(--navy);margin-top:48px;padding:36px 20px 20px;color:rgba(255,255,255,.65);border-top:1px solid rgba(255,255,255,.05)}
+.foot-inner{max-width:1280px;margin:0 auto}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px;margin-bottom:28px}
+.foot-brand h3{color:var(--white);font-size:16px;font-weight:700;margin-bottom:7px}
+.foot-brand p{font-size:13px;line-height:1.6;max-width:260px}
+.foot-col h4{color:var(--white);font-size:12px;font-weight:600;margin-bottom:12px;letter-spacing:.2px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.foot-col ul li a{color:rgba(255,255,255,.55);text-decoration:none;font-size:12px;transition:color .2s}
+.foot-col ul li a:hover{color:var(--accent)}
+.foot-bot{border-top:1px solid rgba(255,255,255,.07);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:12px}
+.foot-bot a{color:rgba(255,255,255,.45);text-decoration:none}
+.foot-bot a:hover{color:var(--accent)}
+
+/* CART DRAWER */
+.cart-overlay{position:fixed;inset:0;background:rgba(10,22,40,.45);z-index:900;opacity:0;pointer-events:none;transition:opacity .25s}
+.cart-overlay.open{opacity:1;pointer-events:all}
+.cart-drawer{position:fixed;top:0;right:0;height:100%;width:380px;max-width:95vw;background:var(--white);z-index:901;box-shadow:-8px 0 32px rgba(0,0,0,.18);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1)}
+.cart-drawer.open{transform:translateX(0)}
+.cart-hd{padding:20px 20px 16px;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.cart-hd h2{font-size:17px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px}
+.cart-close{background:var(--gray-100);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--gray-600)}
+.cart-close:hover{background:var(--gray-200)}
+.cart-items{flex:1;overflow-y:auto;padding:12px 16px;display:flex;flex-direction:column;gap:10px}
+.cart-empty{text-align:center;padding:60px 20px;color:var(--gray-400)}
+.cart-empty svg{opacity:.3;margin-bottom:12px}
+.cart-empty p{font-size:14px}
+.cart-item{display:flex;gap:12px;padding:12px;border:1px solid var(--gray-200);border-radius:var(--radius);align-items:center;background:var(--gray-50)}
+.cart-item-img{width:48px;height:64px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--white);border-radius:6px;border:1px solid var(--gray-200)}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{font-size:13px;font-weight:600;color:var(--gray-800);margin-bottom:2px}
+.cart-item-specs{font-size:11px;color:var(--gray-400);font-family:'DM Mono',monospace}
+.cart-item-price{font-size:14px;font-weight:700;color:var(--navy);margin-top:4px}
+.cart-item-actions{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.qty-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--gray-200);background:var(--white);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--gray-600);font-weight:700}
+.qty-btn:hover{border-color:var(--accent);color:var(--accent)}
+.qty-num{font-size:13px;font-weight:600;color:var(--gray-800);min-width:18px;text-align:center}
+.cart-remove{width:24px;height:24px;border:none;background:none;cursor:pointer;color:var(--gray-400);display:flex;align-items:center;justify-content:center;border-radius:4px}
+.cart-remove:hover{color:var(--red);background:#fee2e2}
+.cart-ft{padding:16px 20px 24px;border-top:1px solid var(--gray-200);flex-shrink:0}
+.cart-subtotal{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.cart-subtotal span{font-size:13px;color:var(--gray-600)}
+.cart-subtotal strong{font-size:20px;font-weight:700;color:var(--navy)}
+.btn-checkout{background:var(--navy);color:var(--white);border:none;border-radius:var(--radius);padding:13px;width:100%;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-checkout:hover{background:var(--navy-light)}
+.btn-checkout:disabled{background:var(--gray-200);color:var(--gray-400);cursor:not-allowed}
+
+/* TOAST */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--navy);color:var(--white);padding:12px 18px;border-radius:var(--radius);font-size:13px;z-index:2000;box-shadow:var(--shadow-lg);border-left:3px solid var(--accent);transform:translateY(80px);opacity:0;transition:all .3s;pointer-events:none;max-width:300px}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* NO RESULTS */
+.no-results{text-align:center;padding:60px 20px;color:var(--gray-400);font-size:14px}
+.no-results h3{color:var(--gray-600);font-size:18px;margin-bottom:6px}
+
+@media(max-width:1024px){
+  .page-wrap{grid-template-columns:1fr}
+  .sidebar{position:static}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-stats{flex-direction:row;min-width:unset;justify-content:space-around}
+  .stat-div{display:none}
+  .pricing-wrap{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .pgrid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">T</div>
+      <div><span class="logo-text">Tekhouz</span><span class="logo-sub">SOLUTIONS · SHOP</span></div>
+    </a>
+    <div class="nav-search">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="search-input" placeholder="Search model, specs, SKU..." oninput="renderProducts()">
+    </div>
+    <div class="nav-links">
+      <a href="#" onclick="openOffer()">Send B2B Offer</a>
+      <a href="#" class="nav-cta" onclick="showToast('Sign in coming soon!')">Sign In</a>
+      <a href="#" onclick="openCart();return false;" style="position:relative;display:inline-flex;align-items:center;gap:5px;background:var(--gray-100);border:1px solid var(--gray-200);border-radius:7px;padding:6px 13px;color:var(--gray-800);font-size:13px;font-weight:600;text-decoration:none">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Cart <span id="cart-count" style="background:var(--accent);color:white;border-radius:10px;font-size:10px;font-weight:700;padding:1px 6px;display:none">0</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="ticker-bar" style="margin-top:0">
+  <div class="ticker-inner">
+    <div class="ticker-label"><span class="live-dot"></span> Live Stock</div>
+    <div class="ticker-scroll">
+      <div class="ticker-track" id="ticker-track"></div>
+    </div>
+  </div>
+</div>
+
+<div class="page-wrap" id="products">
+  <aside class="sidebar">
+    <div class="sb-section">
+      <div class="sb-title">Category</div>
+      <div class="filter-list" id="cat-filters">
+        <label><input type="checkbox" value="macbook" checked onchange="renderProducts()"> MacBook</label>
+        <label><input type="checkbox" value="iphone" checked onchange="renderProducts()"> iPhone</label>
+        <label><input type="checkbox" value="surface" checked onchange="renderProducts()"> Surface Laptop</label>
+        <label><input type="checkbox" value="android" checked onchange="renderProducts()"> Android</label>
+      </div>
+    </div>
+    <div class="sb-section">
+      <div class="sb-title">Grade</div>
+      <div class="grade-pills">
+        <div class="gp on" data-g="A" onclick="toggleGrade(this)">A</div>
+        <div class="gp on" data-g="B" onclick="toggleGrade(this)">B</div>
+        <div class="gp on" data-g="C" onclick="toggleGrade(this)">C</div>
+        <div class="gp" data-g="D" onclick="toggleGrade(this)">D</div>
+      </div>
+    </div>
+    <div class="sb-section">
+      <div class="sb-title">Max Price</div>
+      <input type="range" min="50" max="700" value="700" step="25" id="price-slider" oninput="document.getElementById('pmax-lbl').textContent='$'+this.value;renderProducts()" style="width:100%;accent-color:var(--accent);margin:8px 0">
+      <div class="price-row"><span>$50</span><span id="pmax-lbl">$700</span></div>
+    </div>
+    <div class="sb-section">
+      <div class="sb-title">Storage</div>
+      <div class="filter-list" id="storage-filters">
+        <label><input type="checkbox" value="64GB" checked onchange="renderProducts()"> 64GB</label>
+        <label><input type="checkbox" value="128GB" checked onchange="renderProducts()"> 128GB</label>
+        <label><input type="checkbox" value="256GB" checked onchange="renderProducts()"> 256GB</label>
+        <label><input type="checkbox" value="512GB" checked onchange="renderProducts()"> 512GB</label>
+        <label><input type="checkbox" value="1024GB" checked onchange="renderProducts()"> 1TB</label>
+      </div>
+    </div>
+    <div style="margin-top:8px">
+      <button onclick="openOffer()" class="btn btn-add" style="width:100%;font-size:13px;">Send B2B Offer →</button>
+    </div>
+  </aside>
+
+  <div class="content">
+    <div class="cat-tabs" id="cat-tabs">
+      <div class="ct on" data-cat="all" onclick="setTab(this)">All <span id="tab-all-count"></span></div>
+      <div class="ct" data-cat="macbook" onclick="setTab(this)">MacBook <span id="tab-macbook-count"></span></div>
+      <div class="ct" data-cat="iphone" onclick="setTab(this)">iPhone <span id="tab-iphone-count"></span></div>
+      <div class="ct" data-cat="surface" onclick="setTab(this)">Surface <span id="tab-surface-count"></span></div>
+      <div class="ct" data-cat="android" onclick="setTab(this)">Android <span id="tab-android-count"></span></div>
+    </div>
+
+    <div class="toolbar">
+      <div class="results-count" id="results-count">Loading...</div>
+      <select class="sort-sel" id="sort-sel" onchange="renderProducts()">
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="qty-desc">Most Stock</option>
+        <option value="grade-asc">Best Grade First</option>
+      </select>
+    </div>
+
+    <div class="pgrid" id="product-grid"></div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <h3>Tekhouz Solutions LLC</h3>
+        <p>Wholesale distributor of refurbished Apple, Dell, HP and Microsoft devices. Based in Milpitas, CA.</p>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px">
+          <a href="tel:15102831038" style="color:rgba(255,255,255,.65);font-size:12px;text-decoration:none">📞 (510) 283-1038</a>
+          <a href="mailto:support@tekhouz.com" style="color:rgba(255,255,255,.65);font-size:12px;text-decoration:none">✉ support@tekhouz.com</a>
+          <span style="font-size:12px;color:rgba(255,255,255,.4)">📍 Milpitas, CA 95035</span>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#">MacBook Air</a></li><li><a href="#">MacBook Pro</a></li>
+          <li><a href="#">iPhone</a></li><li><a href="#">Surface Laptop</a></li>
+          <li><a href="#">Android Phones</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>For Business</h4>
+        <ul>
+          <li><a href="#">B2B Wholesale</a></li>
+          <li><a href="#" onclick="openOffer()">Send an Offer</a></li>
+          <li><a href="#pricing">Volume Pricing</a></li><li><a href="#payment">Payment Terms</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Track Order</a></li><li><a href="#">Return Policy</a></li>
+          <li><a href="#">Grading Guide</a></li><li><a href="#">Contact Us</a></li>
+          <li><a href="https://g.co/kgs/SvNjx3t">Store Location</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Tekhouz Solutions LLC · All rights reserved</span>
+      <div style="display:flex;gap:14px"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- OFFER MODAL -->
+<div class="modal-ov" id="offer-modal" onclick="closeOfferOuter(event)">
+  <div class="modal">
+    <div class="modal-hd">
+      <div><div class="modal-title">Send a B2B Offer</div><div class="modal-sub">We respond within 2 hours · support@tekhouz.com</div></div>
+      <button class="modal-x" onclick="closeOffer()">✕</button>
+    </div>
+    <div class="modal-bd">
+      <div class="type-tabs">
+        <div class="ttab on" onclick="setOfferType(this,'b2b')"><h4>B2B</h4><p>Wholesale / Reseller</p></div>
+        <div class="ttab" onclick="setOfferType(this,'b2c')"><h4>B2C</h4><p>Individual Buyer</p></div>
+      </div>
+      <div class="f2">
+        <div class="form-r" id="company-field"><label>Company</label><input type="text" id="o-company" placeholder="Acme Corp"></div>
+        <div class="form-r"><label>Contact Name</label><input type="text" id="o-name" placeholder="John Smith"></div>
+      </div>
+      <div class="f2">
+        <div class="form-r"><label>Email</label><input type="email" id="o-email" placeholder="you@company.com"></div>
+        <div class="form-r"><label>Phone</label><input type="tel" id="o-phone" placeholder="(510) 000-0000"></div>
+      </div>
+      <div class="form-r"><label>Product / SKU</label><input type="text" id="o-product" placeholder="e.g. MacBook Air M2 256GB"></div>
+      <div class="f2">
+        <div class="form-r"><label>Quantity</label><input type="number" min="1" id="o-qty" placeholder="e.g. 20"></div>
+        <div class="form-r"><label>Offer Price (per unit)</label><input type="text" id="o-price" placeholder="$380"></div>
+      </div>
+      <div class="form-r"><label>Payment Preference</label>
+        <div class="pay-opts">
+          <label class="pay-opt"><input type="radio" name="pay" value="ach" checked><div><div>ACH / Wire Transfer</div><div class="pay-opt-sub">Net 30 for established accounts</div></div></label>
+          <label class="pay-opt"><input type="radio" name="pay" value="paypal"><div><div>PayPal</div><div class="pay-opt-sub">Instant payment</div></div></label>
+          <label class="pay-opt"><input type="radio" name="pay" value="card"><div><div>Credit / Debit Card</div><div class="pay-opt-sub">Visa, MC, Amex</div></div></label>
+        </div>
+      </div>
+      <div class="form-r"><label>Notes</label><textarea id="o-notes" placeholder="Grading requirements, timeline, delivery..."></textarea></div>
+      <button class="btn-submit" onclick="submitOffer()">Submit Offer →</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- CART -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-hd">
+    <h2>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      Your Cart
+    </h2>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-ft">
+    <div class="cart-subtotal">
+      <span>Subtotal (<span id="cart-total-qty">0</span> items)</span>
+      <strong id="cart-total-price">$0</strong>
+    </div>
+    <button class="btn-checkout" id="checkout-btn" onclick="showToast('Checkout coming soon!')">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<script>
+const SHOP_API_URL = 'https://tekhouz-wms.up.railway.app/api/shop/inventory';
+
+// Fallback data shown instantly while the live fetch is in flight, and used if the API call fails.
+const FALLBACK_INVENTORY = [{"category": "android", "model": "Galaxy Z Flip 3", "color": "Black", "storage": "128GB", "ram": "", "grade": "B", "qty": 6, "price": 128}, {"category": "android", "model": "Galaxy Z Flip 3", "color": "Black", "storage": "128GB", "ram": "", "grade": "C", "qty": 6, "price": 128}, {"category": "android", "model": "Galaxy Z Flip 3", "color": "Black", "storage": "128GB", "ram": "", "grade": "D", "qty": 1, "price": 128}, {"category": "android", "model": "Google Pixel 7Pro", "color": "Black", "storage": "128GB", "ram": "", "grade": "B", "qty": 3, "price": 148}, {"category": "android", "model": "Google Pixel 7Pro", "color": "Black", "storage": "128GB", "ram": "", "grade": "C", "qty": 1, "price": 148}, {"category": "android", "model": "Google Pixel 8", "color": "Black", "storage": "128GB", "ram": "", "grade": "D", "qty": 2, "price": 148}, {"category": "android", "model": "Nexus 6P", "color": "Black", "storage": "32GB", "ram": "", "grade": "B", "qty": 1, "price": 75}, {"category": "android", "model": "Nexus 6P", "color": "Black", "storage": "32GB", "ram": "", "grade": "C", "qty": 1, "price": 75}, {"category": "android", "model": "Nexus 6P", "color": "Silver", "storage": "32GB", "ram": "", "grade": "C", "qty": 1, "price": 75}, {"category": "iphone", "model": "iPhone 11", "color": "White", "storage": "64GB", "ram": "", "grade": "B", "qty": 1, "price": 90}, {"category": "iphone", "model": "iPhone 11", "color": "White", "storage": "64GB", "ram": "", "grade": "C", "qty": 1, "price": 90}, {"category": "iphone", "model": "iPhone 11", "color": "White", "storage": "64GB", "ram": "", "grade": "D", "qty": 1, "price": 90}, {"category": "iphone", "model": "iPhone 11", "color": "Black", "storage": "64GB", "ram": "", "grade": "D", "qty": 2, "price": 100}, {"category": "iphone", "model": "iPhone 11", "color": "Black", "storage": "128GB", "ram": "", "grade": "D", "qty": 1, "price": 110}, {"category": "iphone", "model": "iPhone 11", "color": "Red", "storage": "256GB", "ram": "", "grade": "D", "qty": 1, "price": 130}, {"category": "iphone", "model": "iPhone 12", "color": "Black", "storage": "64GB", "ram": "", "grade": "B", "qty": 5, "price": 115}, {"category": "iphone", "model": "iPhone 12", "color": "Black", "storage": "64GB", "ram": "", "grade": "C", "qty": 4, "price": 115}, {"category": "iphone", "model": "iPhone 12", "color": "Green", "storage": "64GB", "ram": "", "grade": "B", "qty": 1, "price": 115}, {"category": "iphone", "model": "iPhone 12", "color": "Red", "storage": "64GB", "ram": "", "grade": "C", "qty": 1, "price": 115}, {"category": "iphone", "model": "iPhone 12", "color": "White", "storage": "64GB", "ram": "", "grade": "B", "qty": 1, "price": 115}, {"category": "iphone", "model": "iPhone 12", "color": "Red", "storage": "128GB", "ram": "", "grade": "D", "qty": 1, "price": 140}, {"category": "iphone", "model": "iPhone 12 Mini", "color": "Black", "storage": "64GB", "ram": "", "grade": "C", "qty": 1, "price": 74}, {"category": "iphone", "model": "iPhone 12 Mini", "color": "Blue", "storage": "64GB", "ram": "", "grade": "C", "qty": 1, "price": 74}, {"category": "iphone", "model": "iPhone 12 Mini", "color": "Red", "storage": "64GB", "ram": "", "grade": "A", "qty": 1, "price": 74}, {"category": "iphone", "model": "iPhone 12 Pro", "color": "Blue", "storage": "128GB", "ram": "", "grade": "A", "qty": 1, "price": 190}, {"category": "iphone", "model": "iPhone 13", "color": "Blue", "storage": "128GB", "ram": "", "grade": "B", "qty": 1, "price": 200}, {"category": "iphone", "model": "iPhone 13", "color": "Midnight", "storage": "128GB", "ram": "", "grade": "B", "qty": 1, "price": 200}, {"category": "iphone", "model": "iPhone 14", "color": "Midnight", "storage": "128GB", "ram": "", "grade": "A", "qty": 26, "price": 270}, {"category": "iphone", "model": "iPhone 14", "color": "Midnight", "storage": "128GB", "ram": "", "grade": "B", "qty": 2, "price": 270}, {"category": "iphone", "model": "iPhone 14", "color": "Midnight", "storage": "128GB", "ram": "", "grade": "C", "qty": 2, "price": 270}, {"category": "iphone", "model": "iPhone 15 Plus", "color": "Pink", "storage": "512GB", "ram": "", "grade": "A", "qty": 1, "price": 440}, {"category": "iphone", "model": "iPhone 15 Plus", "color": "Pink", "storage": "128GB", "ram": "", "grade": "C", "qty": 1, "price": 350}, {"category": "iphone", "model": "iPhone 15 Pro", "color": "Black", "storage": "512GB", "ram": "", "grade": "C", "qty": 1, "price": 470}, {"category": "iphone", "model": "iPhone 15 Pro", "color": "Black", "storage": "512GB", "ram": "", "grade": "D", "qty": 1, "price": 470}, {"category": "iphone", "model": "iPhone 15 Pro", "color": "White", "storage": "512GB", "ram": "", "grade": "B", "qty": 3, "price": 477}, {"category": "iphone", "model": "iPhone 15 Pro", "color": "Black", "storage": "512GB", "ram": "", "grade": "B", "qty": 2, "price": 478}, {"category": "iphone", "model": "iPhone 15 Pro", "color": "Blue", "storage": "512GB", "ram": "", "grade": "B", "qty": 3, "price": 483}, {"category": "iphone", "model": "iPhone 15 Pro", "color": "White", "storage": "512GB", "ram": "", "grade": "C", "qty": 1, "price": 487}, {"category": "iphone", "model": "iPhone SE", "color": "Black", "storage": "64GB", "ram": "", "grade": "A", "qty": 2, "price": 62}, {"category": "iphone", "model": "iPhone SE", "color": "Black", "storage": "64GB", "ram": "", "grade": "B", "qty": 10, "price": 62}, {"category": "iphone", "model": "iPhone SE", "color": "Red", "storage": "64GB", "ram": "", "grade": "B", "qty": 1, "price": 74}, {"category": "iphone", "model": "iPhone SE", "color": "Red", "storage": "64GB", "ram": "", "grade": "D", "qty": 2, "price": 74}, {"category": "iphone", "model": "iPhone SE", "color": "White", "storage": "64GB", "ram": "", "grade": "D", "qty": 1, "price": 74}, {"category": "iphone", "model": "iPhone SE", "color": "White", "storage": "64GB", "ram": "", "grade": "B", "qty": 2, "price": 75}, {"category": "iphone", "model": "iPhone SE", "color": "Midnight", "storage": "64GB", "ram": "", "grade": "B", "qty": 4, "price": 78}, {"category": "iphone", "model": "iPhone SE", "color": "Red", "storage": "64GB", "ram": "", "grade": "A", "qty": 3, "price": 80}, {"category": "iphone", "model": "iPhone SE", "color": "Midnight", "storage": "64GB", "ram": "", "grade": "A", "qty": 1, "price": 90}, {"category": "iphone", "model": "iPhone X", "color": "Space Gray", "storage": "256GB", "ram": "", "grade": "C", "qty": 1, "price": 70}, {"category": "iphone", "model": "iPhone XR", "color": "Black", "storage": "64GB", "ram": "", "grade": "B", "qty": 1, "price": 70}, {"category": "iphone", "model": "iPhone XR", "color": "Black", "storage": "64GB", "ram": "", "grade": "D", "qty": 1, "price": 70}, {"category": "iphone", "model": "iPhone XR", "color": "Black", "storage": "128GB", "ram": "", "grade": "C", "qty": 1, "price": 90}, {"category": "macbook", "model": "MacBook Air 13\" (2019)", "color": "Space Gray", "storage": "256GB", "ram": "16GB", "grade": "A", "qty": 2, "price": 160}, {"category": "macbook", "model": "MacBook Air 13\" (2019)", "color": "Space Gray", "storage": "256GB", "ram": "16GB", "grade": "B", "qty": 5, "price": 160}, {"category": "macbook", "model": "MacBook Air 13\" (2019)", "color": "Space Gray", "storage": "256GB", "ram": "16GB", "grade": "C", "qty": 1, "price": 160}, {"category": "macbook", "model": "MacBook Air 13\" (2019)", "color": "Space Gray", "storage": "256GB", "ram": "16GB", "grade": "D", "qty": 1, "price": 160}, {"category": "macbook", "model": "MacBook Air 13\" (2019)", "color": "Silver", "storage": "256GB", "ram": "16GB", "grade": "A", "qty": 2, "price": 160}, {"category": "macbook", "model": "MacBook Air 13\" (2019)", "color": "Silver", "storage": "256GB", "ram": "16GB", "grade": "B", "qty": 1, "price": 160}, {"category": "macbook", "model": "MacBook Air 13\" (2019)", "color": "Silver", "storage": "256GB", "ram": "16GB", "grade": "C", "qty": 1, "price": 160}, {"category": "macbook", "model": "MacBook Air 13\" (2020)", "color": "Silver", "storage": "256GB", "ram": "16GB", "grade": "B", "qty": 1, "price": 170}, {"category": "macbook", "model": "MacBook Air 13\" (2020)", "color": "Silver", "storage": "256GB", "ram": "8GB", "grade": "A", "qty": 5, "price": 170}, {"category": "macbook", "model": "MacBook Air 13\" (2020)", "color": "Silver", "storage": "256GB", "ram": "8GB", "grade": "B", "qty": 44, "price": 170}, {"category": "macbook", "model": "MacBook Air 13\" (2020)", "color": "Silver", "storage": "256GB", "ram": "8GB", "grade": "C", "qty": 16, "price": 170}, {"category": "macbook", "model": "MacBook Air 13\" (2020)", "color": "Silver", "storage": "256GB", "ram": "8GB", "grade": "D", "qty": 3, "price": 170}, {"category": "macbook", "model": "MacBook Air 13\" (2020) M1", "color": "Space Gray", "storage": "256GB", "ram": "8GB", "grade": "B", "qty": 19, "price": 245}, {"category": "macbook", "model": "MacBook Air 13\" (2020) M1", "color": "Space Gray", "storage": "256GB", "ram": "8GB", "grade": "C", "qty": 8, "price": 245}, {"category": "macbook", "model": "MacBook Air 13\" (2020) M1", "color": "Space Gray", "storage": "256GB", "ram": "8GB", "grade": "D", "qty": 2, "price": 245}, {"category": "macbook", "model": "MacBook Air 13\" (2020) M1", "color": "Silver", "storage": "256GB", "ram": "8GB", "grade": "B", "qty": 1, "price": 240}, {"category": "macbook", "model": "MacBook Air 13\" (2020) M1", "color": "Silver", "storage": "256GB", "ram": "8GB", "grade": "C", "qty": 1, "price": 240}, {"category": "macbook", "model": "MacBook Air 13\" (2020) M1", "color": "Silver", "storage": "256GB", "ram": "8GB", "grade": "D", "qty": 1, "price": 240}, {"category": "macbook", "model": "MacBook Air 13\" (2022) M2", "color": "Space Gray", "storage": "256GB", "ram": "8GB", "grade": "D", "qty": 2, "price": 285}, {"category": "macbook", "model": "MacBook Air 13\" (2022) M2", "color": "Starlight", "storage": "256GB", "ram": "8GB", "grade": "B", "qty": 8, "price": 418}, {"category": "macbook", "model": "MacBook Air 13\" (2022) M2", "color": "Starlight", "storage": "256GB", "ram": "8GB", "grade": "C", "qty": 4, "price": 430}, {"category": "macbook", "model": "MacBook Air 13\" (2022) M2", "color": "Starlight", "storage": "256GB", "ram": "16GB", "grade": "A", "qty": 5, "price": 515}, {"category": "macbook", "model": "MacBook Air 13\" (2022) M2", "color": "Starlight", "storage": "256GB", "ram": "16GB", "grade": "B", "qty": 21, "price": 515}, {"category": "macbook", "model": "MacBook Air 13\" (2022) M2", "color": "Starlight", "storage": "256GB", "ram": "16GB", "grade": "C", "qty": 2, "price": 515}, {"category": "macbook", "model": "MacBook Air 13\" (2022) M2", "color": "Starlight", "storage": "256GB", "ram": "16GB", "grade": "D", "qty": 4, "price": 515}, {"category": "macbook", "model": "MacBook Air 13\" (2022) M2", "color": "Midnight", "storage": "512GB", "ram": "16GB", "grade": "D", "qty": 1, "price": 515}, {"category": "macbook", "model": "MacBook Pro 13\" (2017)", "color": "Silver", "storage": "256GB", "ram": "8GB", "grade": "A", "qty": 1, "price": 125}, {"category": "macbook", "model": "MacBook Pro 13\" (2017)", "color": "Silver", "storage": "256GB", "ram": "8GB", "grade": "B", "qty": 6, "price": 125}, {"category": "macbook", "model": "MacBook Pro 13\" (2017)", "color": "Silver", "storage": "256GB", "ram": "8GB", "grade": "C", "qty": 1, "price": 125}, {"category": "macbook", "model": "MacBook Pro 13\" (2020)", "color": "Silver", "storage": "256GB", "ram": "16GB", "grade": "A", "qty": 1, "price": 160}, {"category": "macbook", "model": "MacBook Pro 13\" (2020)", "color": "Silver", "storage": "256GB", "ram": "16GB", "grade": "B", "qty": 1, "price": 160}, {"category": "macbook", "model": "MacBook Pro 13\" (2020) M1", "color": "Silver", "storage": "512GB", "ram": "8GB", "grade": "B", "qty": 1, "price": 365}, {"category": "macbook", "model": "MacBook Pro 13\" (2020) M1", "color": "Space Gray", "storage": "256GB", "ram": "8GB", "grade": "A", "qty": 1, "price": 365}, {"category": "macbook", "model": "MacBook Pro 13\" (2020) M1", "color": "Space Gray", "storage": "256GB", "ram": "8GB", "grade": "B", "qty": 1, "price": 365}, {"category": "macbook", "model": "MacBook Pro 13\" (2020) M1", "color": "Space Gray", "storage": "256GB", "ram": "16GB", "grade": "D", "qty": 4, "price": 365}, {"category": "macbook", "model": "MacBook Pro 13\" (2022) M2", "color": "Space Gray", "storage": "256GB", "ram": "8GB", "grade": "A", "qty": 2, "price": 425}, {"category": "macbook", "model": "MacBook Pro 13\" (2022) M2", "color": "Space Gray", "storage": "256GB", "ram": "8GB", "grade": "B", "qty": 1, "price": 425}, {"category": "macbook", "model": "MacBook Pro 13\" (2022) M2", "color": "Space Gray", "storage": "256GB", "ram": "8GB", "grade": "C", "qty": 1, "price": 425}, {"category": "macbook", "model": "MacBook Pro 13\" (2022) M2", "color": "Space Gray", "storage": "512GB", "ram": "8GB", "grade": "A", "qty": 1, "price": 430}, {"category": "macbook", "model": "MacBook Pro 13\" (2022) M2", "color": "Space Gray", "storage": "512GB", "ram": "8GB", "grade": "B", "qty": 6, "price": 430}, {"category": "macbook", "model": "MacBook Pro 13\" (2022) M2", "color": "Space Gray", "storage": "512GB", "ram": "8GB", "grade": "C", "qty": 5, "price": 430}, {"category": "macbook", "model": "MacBook Pro 13\" (2022) M2", "color": "Space Gray", "storage": "512GB", "ram": "8GB", "grade": "D", "qty": 4, "price": 340}, {"category": "macbook", "model": "MacBook Pro 13\" (2022) M2", "color": "Space Gray", "storage": "256GB", "ram": "16GB", "grade": "A", "qty": 2, "price": 500}, {"category": "macbook", "model": "MacBook Pro 13\" (2022) M2", "color": "Space Gray", "storage": "256GB", "ram": "16GB", "grade": "B", "qty": 2, "price": 500}, {"category": "macbook", "model": "MacBook Pro 13\" (2022) M2", "color": "Space Gray", "storage": "256GB", "ram": "16GB", "grade": "C", "qty": 1, "price": 500}, {"category": "macbook", "model": "MacBook Pro 13\" (2022) M2", "color": "Space Gray", "storage": "1024GB", "ram": "24GB", "grade": "C", "qty": 2, "price": 700}, {"category": "surface", "model": "Surface Laptop 3", "color": "Silver", "storage": "256GB", "ram": "16GB", "grade": "B", "qty": 11, "price": 198}, {"category": "surface", "model": "Surface Laptop 3", "color": "Silver", "storage": "256GB", "ram": "16GB", "grade": "C", "qty": 11, "price": 198}, {"category": "surface", "model": "Surface Laptop 3", "color": "Silver", "storage": "256GB", "ram": "16GB", "grade": "D", "qty": 1, "price": 198}, {"category": "surface", "model": "Surface Laptop 4", "color": "Silver", "storage": "256GB", "ram": "16GB", "grade": "C", "qty": 1, "price": 245}];
+
+let INVENTORY = FALLBACK_INVENTORY;
+let usingLiveData = false;
+
+async function loadLiveInventory() {
+  try {
+    const resp = await fetch(SHOP_API_URL, { cache: 'no-store' });
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    if (!data.products || !Array.isArray(data.products) || data.products.length === 0) {
+      throw new Error('Empty response');
+    }
+    INVENTORY = data.products;
+    usingLiveData = true;
+    updateLiveBadge(true, data.updated_at);
+    renderProducts();
+  } catch (err) {
+    console.warn('Live inventory fetch failed, using fallback data:', err.message);
+    INVENTORY = FALLBACK_INVENTORY;
+    usingLiveData = false;
+    updateLiveBadge(false);
+    renderProducts();
+  }
+}
+
+function updateLiveBadge(isLive, updatedAt) {
+  const label = document.querySelector('.ticker-label');
+  if (!label) return;
+  if (isLive) {
+    const t = updatedAt ? new Date(updatedAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) : '';
+    label.innerHTML = '<span class="live-dot"></span> Live Stock' + (t ? ' · synced ' + t : '');
+  } else {
+    label.innerHTML = '<span class="live-dot" style="background:#fbbf24"></span> Live Stock (offline — showing last known data)';
+  }
+}
+
+let activeTab = 'all';
+let activeGrades = new Set(['A','B','C']);
+
+const GSM = 'https://fdn2.gsmarena.com/vv/bigpic/';
+const CDN = 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/';
+const PHONE_PHOTOS = {
+  // iPhones — GSMArena confirmed working
+  'iphone se':         GSM + 'apple-iphone-se-2022.jpg',
+  'iphone x':          GSM + 'apple-iphone-x.jpg',
+  'iphone xr':         GSM + 'apple-iphone-xr.jpg',
+  'iphone xs max':     GSM + 'apple-iphone-xs-max.jpg',
+  'iphone xs':         GSM + 'apple-iphone-xs.jpg',
+  'iphone 11 pro max': GSM + 'apple-iphone-11-pro-max.jpg',
+  'iphone 11 pro':     GSM + 'apple-iphone-11-pro.jpg',
+  'iphone 11':         GSM + 'apple-iphone-11.jpg',
+  'iphone 12 mini':    GSM + 'apple-iphone-12-mini.jpg',
+  'iphone 12 pro max': GSM + 'apple-iphone-12-pro-max.jpg',
+  'iphone 12 pro':     GSM + 'apple-iphone-12-pro--.jpg',
+  'iphone 12':         GSM + 'apple-iphone-12.jpg',
+  'iphone 13 pro max': GSM + 'apple-iphone-13-pro-max.jpg',
+  'iphone 13 pro':     GSM + 'apple-iphone-13-pro.jpg',
+  'iphone 13 mini':    GSM + 'apple-iphone-13-mini.jpg',
+  'iphone 13':         GSM + 'apple-iphone-13.jpg',
+  'iphone 14 plus':    GSM + 'apple-iphone-14-plus.jpg',
+  'iphone 14 pro max': GSM + 'apple-iphone-14-pro-max.jpg',
+  'iphone 14 pro':     GSM + 'apple-iphone-14-pro.jpg',
+  'iphone 14':         GSM + 'apple-iphone-14.jpg',
+  'iphone 15 plus':    GSM + 'apple-iphone-15-plus.jpg',
+  'iphone 15 pro max': GSM + 'apple-iphone-15-pro-max.jpg',
+  'iphone 15 pro':     GSM + 'apple-iphone-15-pro.jpg',
+  'iphone 15':         GSM + 'apple-iphone-15.jpg',
+  'iphone 16 pro max': GSM + 'apple-iphone-16-pro-max.jpg',
+  'iphone 16 pro':     GSM + 'apple-iphone-16-pro.jpg',
+  'iphone 16 plus':    GSM + 'apple-iphone-16-plus.jpg',
+  'iphone 16':         GSM + 'apple-iphone-16.jpg',
+  // Google Pixel
+  'google pixel 9 pro': GSM + 'google-pixel-9-pro.jpg',
+  'google pixel 9':     GSM + 'google-pixel-9.jpg',
+  'google pixel 8 pro': GSM + 'google-pixel-8-pro.jpg',
+  'google pixel 8':     GSM + 'google-pixel-8.jpg',
+  'google pixel 7 pro': GSM + 'google-pixel7-pro-new.jpg',
+  'google pixel 7':     GSM + 'google-pixel7-new.jpg',
+  // Samsung
+  'galaxy z flip 3':  GSM + 'samsung-galaxy-z-flip3-5g.jpg',
+  'galaxy z flip 4':  GSM + 'samsung-galaxy-z-flip4.jpg',
+  'galaxy s22 ultra': GSM + 'samsung-galaxy-s22-ultra-5g.jpg',
+  'galaxy s22':       GSM + 'samsung-galaxy-s22-5g.jpg',
+  // MacBook — Apple CDN confirmed working
+  'macbook air': CDN + 'macbook-air-og-202011?wid=800&hei=600&fmt=jpeg&auto=format&trim=true',
+  'macbook pro': CDN + 'macbook-pro-13-og-202011?wid=800&hei=600&fmt=jpeg&auto=format&trim=true',
+  // Surface — use MacBook Air image as placeholder until Surface URL is found
+  'surface laptop': CDN + 'macbook-air-og-202011?wid=800&hei=600&fmt=jpeg&auto=format&trim=true',
+};
+
+function getPhotoUrl(model) {
+  const m = (model || '').toLowerCase().replace(/"/g, '"');
+  // Try longest match first
+  const keys = Object.keys(PHONE_PHOTOS).sort((a,b) => b.length - a.length);
+  for (const k of keys) {
+    if (m.includes(k)) return PHONE_PHOTOS[k];
+  }
+  return null;
+}
+
+function getColorPalette(color) {
+  const c = (color||'').toLowerCase();
+  if (c.includes('black') || c.includes('midnight') || c.includes('space gray') || c.includes('graphite'))
+    return { body:'#3a3d42', screen:'#1a1c1f', bezel:'#2a2c30', btn:'#4a4d52' };
+  if (c.includes('white') || c.includes('silver') || c.includes('starlight'))
+    return { body:'#e8e8ea', screen:'#c8cdd4', bezel:'#d0d4da', btn:'#c0c4ca' };
+  if (c.includes('gold') || c.includes('champagne'))
+    return { body:'#e8d5b0', screen:'#c8b890', bezel:'#d4c09a', btn:'#c0aa80' };
+  if (c.includes('red') || c.includes('product red'))
+    return { body:'#c0392b', screen:'#922b21', bezel:'#a93226', btn:'#85200d' };
+  if (c.includes('blue') || c.includes('sierra blue') || c.includes('alpine blue'))
+    return { body:'#4a7fa5', screen:'#2e6080', bezel:'#3a6f94', btn:'#2a5a7a' };
+  if (c.includes('purple') || c.includes('deep purple'))
+    return { body:'#7c6fa0', screen:'#5a5078', bezel:'#6a5e8e', btn:'#5a4e7e' };
+  if (c.includes('green') || c.includes('alpine green'))
+    return { body:'#4a7a5a', screen:'#2e5a3e', bezel:'#3a6a4a', btn:'#2a5a3a' };
+  if (c.includes('yellow'))
+    return { body:'#e8c94a', screen:'#c8a830', bezel:'#d4b83a', btn:'#c0a820' };
+  if (c.includes('pink') || c.includes('rose'))
+    return { body:'#e8a0a8', screen:'#c87880', bezel:'#d48890', btn:'#c07078' };
+  if (c.includes('coral'))
+    return { body:'#e87060', screen:'#c05040', bezel:'#d46050', btn:'#b04030' };
+  if (c.includes('natural titanium') || c.includes('titanium'))
+    return { body:'#b0a898', screen:'#908880', bezel:'#a09888', btn:'#807870' };
+  if (c.includes('space black'))
+    return { body:'#1e1e22', screen:'#0e0e12', bezel:'#161618', btn:'#2a2a2e' };
+  // default neutral
+  return { body:'#d0d8e4', screen:'#b0bcc8', bezel:'#c0c8d4', btn:'#a8b4c0' };
+}
+
+function getIcon(cat, model, color) {
+  const photoUrl = getPhotoUrl(model);
+  if (photoUrl) {
+    const svgFallback = getSvgIcon(cat, model, color);
+    return `<img src="${photoUrl}" alt="${model}" style="max-width:100%;max-height:120px;object-fit:contain;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;align-items:center;justify-content:center;width:100%;height:100%">${svgFallback}</span>`;
+  }
+  return getSvgIcon(cat, model, color);
+}
+
+function getSvgIcon(cat, model, color) {
+  model = (model||'').toLowerCase();
+  const p = getColorPalette(color);
+
+  if (cat === 'iphone') {
+    // iPhone SE — home button, thick bezels
+    if (/iphone se|iphone 5|iphone 6|iphone 7|iphone 8/.test(model)) {
+      return `<svg width="54" height="80" viewBox="0 0 54 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="52" height="86" rx="9" fill="${p.body}" stroke="${p.bezel}" stroke-width="1.5"/>
+        <rect x="6" y="10" width="42" height="64" rx="3" fill="${p.screen}"/>
+        <rect x="18" y="5" width="18" height="3" rx="1.5" fill="${p.bezel}"/>
+        <circle cx="27" cy="81" r="4" fill="none" stroke="${p.btn}" stroke-width="1.5"/>
+        <circle cx="27" cy="81" r="1.5" fill="${p.btn}"/>
+      </svg>`;
+    }
+    // iPhone X, XS, XR, 11, 12, 13, 14 — notch
+    if (/iphone x|iphone xr|iphone xs|iphone 11|iphone 12|iphone 13|iphone 14[^p]/.test(model)) {
+      return `<svg width="54" height="82" viewBox="0 0 54 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="52" height="88" rx="11" fill="${p.body}" stroke="${p.bezel}" stroke-width="1.5"/>
+        <rect x="5" y="5" width="44" height="80" rx="8" fill="${p.screen}"/>
+        <rect x="16" y="5" width="22" height="7" rx="3.5" fill="${p.body}"/>
+        <circle cx="32" cy="8.5" r="2" fill="${p.btn}"/>
+        <rect x="18" y="7" width="10" height="3" rx="1.5" fill="${p.bezel}"/>
+      </svg>`;
+    }
+    // iPhone 14 Pro, 15, 16 — Dynamic Island
+    if (/iphone 14 pro|iphone 15|iphone 16/.test(model)) {
+      return `<svg width="54" height="84" viewBox="0 0 54 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="52" height="90" rx="13" fill="${p.body}" stroke="${p.bezel}" stroke-width="1.5"/>
+        <rect x="5" y="5" width="44" height="82" rx="10" fill="${p.screen}"/>
+        <rect x="18" y="8" width="18" height="7" rx="3.5" fill="#0a0a0a"/>
+        <circle cx="32" cy="11.5" r="2.2" fill="#1a1a1a"/>
+      </svg>`;
+    }
+    // fallback
+    return `<svg width="54" height="82" viewBox="0 0 54 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="52" height="88" rx="11" fill="${p.body}" stroke="${p.bezel}" stroke-width="1.5"/>
+      <rect x="5" y="5" width="44" height="80" rx="8" fill="${p.screen}"/>
+      <rect x="16" y="5" width="22" height="7" rx="3.5" fill="${p.body}"/>
+      <circle cx="32" cy="8.5" r="2" fill="${p.btn}"/>
+    </svg>`;
+  }
+
+  if (cat === 'android') {
+    if (/pixel/.test(model)) {
+      return `<svg width="52" height="82" viewBox="0 0 52 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="50" height="88" rx="10" fill="${p.body}" stroke="${p.bezel}" stroke-width="1.5"/>
+        <rect x="5" y="6" width="42" height="78" rx="7" fill="${p.screen}"/>
+        <circle cx="26" cy="10" r="3" fill="#0a0a0a"/>
+        <rect x="15" y="86" width="22" height="2" rx="1" fill="${p.bezel}"/>
+      </svg>`;
+    }
+    if (/galaxy|samsung/.test(model)) {
+      return `<svg width="50" height="84" viewBox="0 0 50 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="48" height="90" rx="12" fill="${p.body}" stroke="${p.bezel}" stroke-width="1.5"/>
+        <rect x="4" y="5" width="42" height="82" rx="10" fill="${p.screen}"/>
+        <circle cx="25" cy="10" r="2.5" fill="#0a0a0a"/>
+      </svg>`;
+    }
+    return `<svg width="52" height="78" viewBox="0 0 52 86" fill="none"><rect x="1" y="1" width="50" height="84" rx="9" fill="${p.body}" stroke="${p.bezel}" stroke-width="1.5"/><rect x="5" y="8" width="42" height="66" rx="4" fill="${p.screen}"/><rect x="19" y="4" width="14" height="3" rx="1.5" fill="${p.bezel}"/><circle cx="26" cy="80" r="3" fill="${p.btn}"/></svg>`;
+  }
+
+  if (cat === 'macbook' || cat === 'surface') {
+    return `<svg width="88" height="66" viewBox="0 0 100 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="5" y="4" width="90" height="56" rx="4" fill="${p.body}" stroke="${p.bezel}" stroke-width="1"/>
+      <rect x="9" y="8" width="82" height="48" rx="2" fill="${p.screen}"/>
+      <rect x="0" y="60" width="100" height="8" rx="2" fill="${p.bezel}"/>
+      <rect x="36" y="64" width="28" height="3" rx="1.5" fill="${p.btn}"/>
+    </svg>`;
+  }
+
+  return `<svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="5" y="5" width="50" height="50" rx="8" fill="#dde3ee"/></svg>`;
+}
+
+function getBrand(p) {
+  if(p.category==='iphone') return 'Apple';
+  if(p.category==='android') {
+    if(p.model.includes('Galaxy')) return 'Samsung';
+    if(p.model.includes('Pixel')||p.model.includes('Nexus')) return 'Google';
+    return 'Android';
+  }
+  if(p.category==='macbook') return 'Apple';
+  if(p.category==='surface') return 'Microsoft';
+  return '';
+}
+
+function getSpecLine(p) {
+  let parts = [];
+  if(p.storage) parts.push(p.storage);
+  if(p.ram) parts.push(p.ram+' RAM');
+  if(p.color) parts.push(p.color);
+  return parts.join(' · ');
+}
+
+function gradeBadge(g) {
+  const map = {A:'badge-a',B:'badge-b',C:'badge-c',D:'badge-d'};
+  const labels = {A:'A — Excellent',B:'B — Good',C:'C — Fair',D:'D — Fixable'};
+  return `<span class="badge ${map[g]||'badge-d'}">${labels[g]||g}</span>`;
+}
+
+function stockColor(qty) {
+  if(qty>=10) return 'var(--green)';
+  if(qty>=3) return 'var(--orange)';
+  return 'var(--red)';
+}
+
+function getFiltered() {
+  const search = document.getElementById('search-input').value.toLowerCase();
+  const maxPrice = parseInt(document.getElementById('price-slider').value);
+  const cats = [...document.querySelectorAll('#cat-filters input:checked')].map(i=>i.value);
+  const storages = [...document.querySelectorAll('#storage-filters input:checked')].map(i=>i.value);
+  
+  return INVENTORY.filter(p => {
+    if(activeTab !== 'all' && p.category !== activeTab) return false;
+    if(!cats.includes(p.category)) return false;
+    if(!activeGrades.has(p.grade)) return false;
+    if(p.price > maxPrice) return false;
+    if(p.storage && !storages.includes(p.storage)) return false;
+    if(search && !(`${p.model} ${p.color} ${p.storage} ${p.ram}`.toLowerCase().includes(search))) return false;
+    return true;
+  });
+}
+
+function getSorted(items) {
+  const s = document.getElementById('sort-sel').value;
+  const gradeOrder = {A:0,B:1,C:2,D:3};
+  return [...items].sort((a,b) => {
+    if(s==='price-asc') return a.price-b.price;
+    if(s==='price-desc') return b.price-a.price;
+    if(s==='qty-desc') return b.qty-a.qty;
+    if(s==='grade-asc') return (gradeOrder[a.grade]||3)-(gradeOrder[b.grade]||3);
+    return 0;
+  });
+}
+
+function renderProducts() {
+  const filtered = getFiltered();
+  const sorted = getSorted(filtered);
+  const grid = document.getElementById('product-grid');
+  
+  // Update tab counts
+  const tabCats = ['all','macbook','iphone','surface','android'];
+  tabCats.forEach(cat => {
+    const el = document.getElementById(`tab-${cat}-count`);
+    if(el) {
+      const count = cat==='all' ? INVENTORY.length : INVENTORY.filter(p=>p.category===cat).length;
+      el.textContent = `(${count})`;
+    }
+  });
+  
+  document.getElementById('results-count').innerHTML = `Showing <strong>${sorted.length}</strong> of ${INVENTORY.length} listings`;
+  
+  if(sorted.length === 0) {
+    grid.innerHTML = `<div class="no-results" style="grid-column:1/-1"><h3>No products match your filters</h3><p>Try adjusting the grade, price range, or category filters</p></div>`;
+    return;
+  }
+  
+  grid.innerHTML = sorted.map(p => {
+    const b2cPrice = p.price;
+    const brand = getBrand(p);
+    const specs = getSpecLine(p);
+    const sc = stockColor(p.qty);
+    const stockLabel = p.qty >= 10 ? `${p.qty} in stock` : p.qty >= 3 ? `${p.qty} left` : `${p.qty} remaining`;
+    const productStr = `${p.model} ${p.storage}${p.ram?' '+p.ram:''} ${p.color} Grade ${p.grade}`;
+    return `
+    <div class="pcard">
+      <div class="card-top">
+        ${gradeBadge(p.grade)}
+        <span class="qty-tag">${p.qty} units</span>
+      </div>
+      <div class="card-img">${getIcon(p.category, p.model, p.color)}</div>
+      <div class="card-body">
+        <div class="card-brand">${brand}</div>
+        <div class="card-name">${p.model}</div>
+        <div class="card-specs">${specs}</div>
+        <div class="card-footer">
+          <div class="card-price">$${b2cPrice}</div>
+          <div style="font-size:10px;color:var(--gray-400)">B2C</div>
+        </div>
+        <div class="stock-row">
+          <span class="sdot" style="background:${sc}"></span>
+          <span style="color:${sc};font-size:10px;font-weight:600">${stockLabel}</span>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-add" onclick="addToCart(INVENTORY.find(i=>i.model===this.dataset.model&&i.storage===this.dataset.storage&&i.color===this.dataset.color&&i.grade===this.dataset.grade))" data-model="${p.model.replace(/"/g,'&quot;')}" data-storage="${p.storage}" data-color="${p.color}" data-grade="${p.grade}">Add to cart</button>
+        <button class="btn btn-offer-sm" onclick="openOffer('${productStr.replace(/'/g,'').replace(/"/g,'')}')">Make B2B offer</button>
+      </div>
+    </div>`;
+  }).join('');
+  
+  buildTicker(sorted);
+}
+
+function buildTicker(items) {
+  const track = document.getElementById('ticker-track');
+  const tickerItems = items.filter(p=>p.qty>0).slice(0,20);
+  const html = tickerItems.map(p => {
+    const cls = p.qty >= 5 ? 't-in' : 't-low';
+    const lbl = p.qty >= 5 ? `${p.qty} in stock` : `${p.qty} left`;
+    return `<div class="ticker-item">${p.model} ${p.storage||''} · <span class="${cls}">${lbl}</span></div>`;
+  }).join('');
+  track.innerHTML = html + html; // duplicate for infinite scroll
+}
+
+function setTab(el) {
+  document.querySelectorAll('.ct').forEach(t=>t.classList.remove('on'));
+  el.classList.add('on');
+  activeTab = el.dataset.cat;
+  renderProducts();
+}
+
+function toggleGrade(el) {
+  const g = el.dataset.g;
+  if(activeGrades.has(g)) {
+    if(activeGrades.size > 1) { activeGrades.delete(g); el.classList.remove('on'); }
+  } else {
+    activeGrades.add(g); el.classList.add('on');
+  }
+  renderProducts();
+}
+
+// ── CART ──────────────────────────────────────────────
+let cart = [];
+
+function cartKey(p) { return `${p.model}|${p.storage}|${p.color}|${p.grade}`; }
+
+function addToCart(p) {
+  const key = cartKey(p);
+  const existing = cart.find(i => i.key === key);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ key, model: p.model, storage: p.storage, color: p.color, grade: p.grade,
+                price: p.price, category: p.category, qty: 1 });
+  }
+  updateCartBadge();
+  renderCart();
+  openCart();
+}
+
+function removeFromCart(key) {
+  cart = cart.filter(i => i.key !== key);
+  updateCartBadge();
+  renderCart();
+}
+
+function changeQty(key, delta) {
+  const item = cart.find(i => i.key === key);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) removeFromCart(key);
+  else { updateCartBadge(); renderCart(); }
+}
+
+function updateCartBadge() {
+  const total = cart.reduce((s, i) => s + i.qty, 0);
+  const badge = document.getElementById('cart-count');
+  if (total > 0) { badge.textContent = total; badge.style.display = 'inline'; }
+  else { badge.style.display = 'none'; }
+}
+
+function renderCart() {
+  const el = document.getElementById('cart-items');
+  const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+  const totalPrice = cart.reduce((s, i) => s + i.qty * i.price, 0);
+  document.getElementById('cart-total-qty').textContent = totalQty;
+  document.getElementById('cart-total-price').textContent = '$' + totalPrice.toLocaleString();
+  document.getElementById('checkout-btn').disabled = cart.length === 0;
+
+  if (cart.length === 0) {
+    el.innerHTML = `<div class="cart-empty">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <p>Your cart is empty</p>
+    </div>`;
+    return;
+  }
+
+  el.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-item-img">${getIcon(item.category, item.model, item.color)}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.model}</div>
+        <div class="cart-item-specs">${[item.storage, item.color, 'Grade ' + item.grade].filter(Boolean).join(' · ')}</div>
+        <div class="cart-item-price">$${item.price}</div>
+      </div>
+      <div class="cart-item-actions">
+        <button class="qty-btn" onclick="changeQty('${item.key}', -1)">−</button>
+        <span class="qty-num">${item.qty}</span>
+        <button class="qty-btn" onclick="changeQty('${item.key}', 1)">+</button>
+        <button class="cart-remove" onclick="removeFromCart('${item.key}')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+        </button>
+      </div>
+    </div>`).join('');
+}
+
+function openCart() {
+  document.getElementById('cart-drawer').classList.add('open');
+  document.getElementById('cart-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  document.getElementById('cart-drawer').classList.remove('open');
+  document.getElementById('cart-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+function openOffer(product) {
+  document.getElementById('offer-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if(product) document.getElementById('o-product').value = product;
+}
+
+function closeOffer() {
+  document.getElementById('offer-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeOfferOuter(e) {
+  if(e.target === document.getElementById('offer-modal')) closeOffer();
+}
+
+function submitOffer() {
+  const name = document.getElementById('o-name').value || 'there';
+  closeOffer();
+  showToast(`Offer received! We'll be in touch soon, ${name}.`);
+}
+
+function setOfferType(el, type) {
+  document.querySelectorAll('.ttab').forEach(t=>t.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('company-field').style.display = type==='b2c' ? 'none' : '';
+}
+
+// Init
+renderProducts(); // paint fallback data immediately so the page isn't blank
+loadLiveInventory(); // then try to fetch live data and re-render
+setInterval(loadLiveInventory, 60000); // refresh every 60 seconds
+</script>
+</body>
+</html>
