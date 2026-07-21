@@ -1,0 +1,12 @@
+{
+  "name": "tekhouz-shop",
+  "version": "1.0.0",
+  "description": "Tekhouz refurbished device shop",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
