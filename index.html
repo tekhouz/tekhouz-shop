@@ -706,6 +706,48 @@ const PHONE_PHOTOS = {
 let CUSTOM_IMAGES = {};
 fetch('https://tekhouz-wms.up.railway.app/api/shop/images').then(r=>r.json()).then(d=>{ CUSTOM_IMAGES=d; renderProducts(); }).catch(()=>{});
 
+let CONDITION_PHOTOS = [];
+fetch('https://tekhouz-wms.up.railway.app/api/shop/condition-photos').then(r=>r.json()).then(d=>{ CONDITION_PHOTOS=d; }).catch(()=>{});
+
+function getConditionPhotos(category, grade) {
+  const cat = (category||'').toLowerCase();
+  const g = (grade||'').toUpperCase();
+  return CONDITION_PHOTOS.filter(p => {
+    const pcat = (p.category||'').toLowerCase();
+    const matches_cat = pcat === cat || (cat.includes('iphone') && pcat === 'iphone') || (cat.includes('macbook') && pcat === 'macbook') || (cat.includes('ipad') && pcat === 'ipad') || (cat.includes('android') && pcat === 'android') || (cat.includes('surface') && pcat === 'surface laptop');
+    return matches_cat && p.grade === g;
+  });
+}
+
+function openConditionGallery(category, grade) {
+  const photos = getConditionPhotos(category, grade);
+  if (!photos.length) return;
+  const gradeColors = {A:'#22c55e',B:'#3b82f6',C:'#f59e0b',D:'#ef4444'};
+  const overlay = document.createElement('div');
+  overlay.id = 'cg-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:20px';
+  overlay.innerHTML = `
+    <div style="background:#fff;border-radius:16px;max-width:700px;width:100%;max-height:90vh;overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid #eee">
+        <div>
+          <span style="font-size:13px;font-weight:700;background:${gradeColors[grade]||'#888'};color:#fff;padding:3px 10px;border-radius:20px;margin-right:8px">Grade ${grade}</span>
+          <span style="font-weight:600;font-size:15px">${category} — Condition Reference</span>
+        </div>
+        <button onclick="document.getElementById('cg-overlay').remove()" style="background:none;border:none;font-size:24px;cursor:pointer;color:#666;line-height:1">×</button>
+      </div>
+      <div style="padding:20px;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px">
+        ${photos.map(p => `
+          <div style="border:1.5px solid #eee;border-radius:10px;overflow:hidden">
+            <img src="${p.image_url}" style="width:100%;height:140px;object-fit:cover;display:block">
+            ${p.caption ? `<div style="padding:8px 10px;font-size:12px;color:#555;font-weight:500">${p.caption}</div>` : ''}
+          </div>`).join('')}
+      </div>
+      <div style="padding:14px 22px;border-top:1px solid #eee;font-size:12px;color:#888">These photos show typical Grade ${grade} ${category} units from our inventory.</div>
+    </div>`;
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+  document.body.appendChild(overlay);
+}
+
 function getPhotoUrl(model) {
   const m = (model || '').toLowerCase().replace(/"/g, '');
   // Custom images take priority — check longest key match first
@@ -944,6 +986,7 @@ function renderProducts() {
         <button class="btn btn-add" onclick="addToCart(INVENTORY.find(i=>i.model===this.dataset.model&&i.storage===this.dataset.storage&&i.color===this.dataset.color&&i.grade===this.dataset.grade))" data-model="${p.model.replace(/"/g,'&quot;')}" data-storage="${p.storage}" data-color="${p.color}" data-grade="${p.grade}">Add to cart</button>
         <button class="btn btn-offer-sm" onclick="openOffer('${productStr.replace(/'/g,'').replace(/"/g,'')}')">Make B2B offer</button>
       </div>
+      ${getConditionPhotos(p.category, p.grade).length ? `<div style="padding:0 12px 10px;text-align:center"><button onclick="openConditionGallery('${p.category}','${p.grade}')" style="background:none;border:none;color:#3b82f6;font-size:11px;cursor:pointer;font-weight:500;padding:0;text-decoration:underline">📷 View Grade ${p.grade} condition photos</button></div>` : ''}
     </div>`;
   }).join('');
   
