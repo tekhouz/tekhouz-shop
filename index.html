@@ -1204,7 +1204,16 @@ function closeOrderConfirm() { document.getElementById('order-confirm-overlay').
 
 function initPayPalButtons() {
   document.getElementById('paypal-button-container').innerHTML = '';
-  if (!window.paypal) { document.getElementById('co-error').textContent='PayPal not loaded. Please refresh.'; document.getElementById('co-error').style.display='block'; return; }
+  if (!window.paypal) {
+    // Wait up to 5s for PayPal SDK to load
+    let attempts = 0;
+    const interval = setInterval(() => {
+      attempts++;
+      if (window.paypal) { clearInterval(interval); initPayPalButtons(); }
+      else if (attempts > 25) { clearInterval(interval); document.getElementById('co-error').textContent='PayPal not loaded. Please refresh.'; document.getElementById('co-error').style.display='block'; }
+    }, 200);
+    return;
+  }
   paypal.Buttons({
     createOrder: async () => {
       const fname = document.getElementById('co-fname').value.trim();
